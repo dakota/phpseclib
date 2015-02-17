@@ -2201,13 +2201,12 @@ class Net_SSH2
         }
 
         extract(unpack('Ctype', $this->_string_shift($response, 1)));
-
         switch ($type) {
             case NET_SSH2_MSG_USERAUTH_FAILURE:
                 extract(unpack('Nlength', $this->_string_shift($response, 4)));
                 $this->errors[] = 'SSH_MSG_USERAUTH_FAILURE: ' . $this->_string_shift($response, $length);
                 var_dump(__METHOD__ . '::' . __LINE__);
-                var_dump($privatekey);
+                var_dump($privatekey->getPrivateKey());
                 var_dump(bin2hex($publickey));
                 var_dump($this->errors);
                 return false;
