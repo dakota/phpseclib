@@ -2208,7 +2208,7 @@ class Net_SSH2
                 $this->errors[] = 'SSH_MSG_USERAUTH_FAILURE: ' . $this->_string_shift($response, $length);
                 var_dump(__METHOD__ . '::' . __LINE__);
                 var_dump($privatekey);
-                var_dump($publickey);
+                var_dump(bin2hex($publickey));
                 var_dump($this->errors);
                 return false;
             case NET_SSH2_MSG_USERAUTH_PK_OK:
