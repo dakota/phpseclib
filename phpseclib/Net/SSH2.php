@@ -2207,6 +2207,9 @@ class Net_SSH2
                 extract(unpack('Nlength', $this->_string_shift($response, 4)));
                 $this->errors[] = 'SSH_MSG_USERAUTH_FAILURE: ' . $this->_string_shift($response, $length);
                 var_dump(__METHOD__ . '::' . __LINE__);
+                var_dump($privatekey);
+                var_dump($publickey);
+                var_dump($this->errors);
                 return false;
             case NET_SSH2_MSG_USERAUTH_PK_OK:
                 // we'll just take it on faith that the public key blob and the public key algorithm name are as
